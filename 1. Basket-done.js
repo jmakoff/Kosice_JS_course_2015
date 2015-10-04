@@ -43,7 +43,7 @@ var basket = (function(){
 			    var quantity = content[productID];
           content[productID] = 0;
 			    products[productID].inventory+=content[productID];
-			    console.log("1 piece of " + products[productID].name + " removed");
+			    console.log(products[productID].name + " removed from the basket");
 			} else {
 			    console.log("SORRY, there is nothing to remove");
 			}
