@@ -9,7 +9,6 @@ var products = [{
 }];
 
 function ProductLineItem(productID) {
-	this.product = product;
     this.id = productID;
     this.q = 1;
 }
