@@ -40,8 +40,9 @@ var basket = (function(){
 		},
 		removeProduct : function(productID){//amount in basket testing
 			if (content[productID] > 0) {
-			    content[productID]--;
-			    products[productID].inventory++;
+			    var quantity = content[productID];
+          content[productID] = 0;
+			    products[productID].inventory+=content[productID];
 			    console.log("1 piece of " + products[productID].name + " removed");
 			} else {
 			    console.log("SORRY, there is nothing to remove");
