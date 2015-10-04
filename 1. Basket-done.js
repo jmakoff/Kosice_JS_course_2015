@@ -54,7 +54,7 @@ var basket = (function(){
 			    content[productID]+=(quantity-content[productID]);
 			    console.log("number of " + products[productID].name + " increased to " + content[productID]);
 			} else {
-			    console.log("SORRY, there not enough pieces of " + products[productID].name);
+			    console.log("SORRY, there are not enough pieces of " + products[productID].name);
 			}
 		},
 		getTotalPrice : function(){
