@@ -8,7 +8,7 @@ var products = [{
 	inventory : 80
 }];
 
-function ProductLineItem(product, productID) {
+function ProductLineItem(productID) {
 	this.product = product;
     this.id = productID;
     this.q = 1;
@@ -37,7 +37,7 @@ var basket = (function(){
 			            }
 			        }       
 			        if (test === 0) {
-			            content.push(new ProductLineItem(products[productID], productID));
+			            content.push(new ProductLineItem(productID));
 			            products[productID].inventory--;
 			        }   
 			    console.log("1 piece of " + products[productID].name + " added");
@@ -81,7 +81,7 @@ var basket = (function(){
 			        console.log("SORRY, there are not enough pieces of " + products[productID].name);    
 			    } else {
 			        products[productID].inventory-=quantity;
-			        content.push(new ProductLineItem(products[productID], productID));
+			        content.push(new ProductLineItem(productID));
 			        for (i=0; i<content.length; i++){
 			            if (content[i].id===productID){
 			                content[i].q=quantity;
