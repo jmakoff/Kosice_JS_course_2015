@@ -8,32 +8,36 @@
 <script type="text/javascript" src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
 <script type="text/javascript" src="js/homework_2.js"></script>
 
-<title>Homework 2</title>
+<title>Homework 2 - Jan Paraska</title>
 </head>
 <body>
 	<div class='container'>
 		<div>
 			<span class="label label-info">Javascript data types</span>
 
-			<ul class="myList">
-				<li>Elementary
-					<ul>
+			<ul class="myList" >
+				<li ><span id="elementaryHandler">Elementary</span>
+        
+					<ul class="Elementary">
 						<li>Number</li>
 						<li>Boolean</li>
 						<li>String</li>
 						<li>null</li>
 						<li>undefined</li>
 					</ul>
-					<ul>
-					<li>Objects
-							<ul>
-								<li>Array<span>+</span></li>
-								<li>Date<span>+</span></li>
-								<li>Function<span>+</span></li>
+          
+					<ul class="Elementary">
+					  <li ><span id="objectsHandler">Objects</span>
+							<ul class="Objects">
+								<li class="Array">Array<span id="arrayAdd">+</span><input id="arrayAddText" type="text" maxlength="50" placeholder="Add subitem" style="display:none"></li>
+								<li class="Date">Date<span id="dateAdd">+</span><input id="dateAddText" type="text" maxlength="50" placeholder="Add subitem" style="display:none"></li>
+								<li class="Function">Function<span id="functionAdd">+</span><input id="functionAddText" type="text" maxlength="50" placeholder="Add subitem" style="display:none"></li>
 							</ul>
 						</li>
 					</ul>
+          
 				</li>
+        
 			</ul>
 		</div>
 	</div>
