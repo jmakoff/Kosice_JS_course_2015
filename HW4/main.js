@@ -16,6 +16,9 @@ class ProductLineItem {
 
 class ProductlineItemContainer {
 	//implement
+	getTotalPrice(){
+		//implement
+	}
 }
 
 class Order extends ProductlineItemContainer {
@@ -42,9 +45,7 @@ class Basket extends ProductlineItemContainer {
 	updateProductQuantity(productID, quantity) {
 		//implement
 	}
-	getTotalPrice(){
-		//implement
-	}
+	
 	placeOrder() {
 		//implement
 	}
