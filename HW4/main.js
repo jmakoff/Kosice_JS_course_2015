@@ -23,9 +23,10 @@ class ProductlineItemContainer {
   	}
 	getTotalPrice(){
 		var price=0;
-        for (i=0; i<content.length; i++){
-			price+=(content[i].q*products[i].price);
+        for (let i=0; i<this.content.length; i++){
+			price+=(this.content[i].q*products[i].price);
 		}
+      	console.log("Total price of this order is " + price);
 	}
 }
 
@@ -110,16 +111,16 @@ class Basket extends ProductlineItemContainer {
 	}
 	updateProductQuantity(productID, quantity) {
 		var test = 0;
-			for (i=0; i<content.length; i++){
-		    	if (content[i].id === productID){
-		        	if (quantity > content[i].q+products[i].inventory){
+			for (let i=0; i<this.content.length; i++){
+		    	if (this.content[i].id === productID){
+		        	if (quantity > this.content[i].q+products[i].inventory){
 		            	console.log("SORRY, there are not enough pieces of " + products[productID].name);
 		            } else {
-		                for (i=0; i<content.length; i++){
+		                for (let i=0; i<this.content.length; i++){
 		                    if(this.content[i].id===productID){
 		                        products[productID].inventory -= (quantity-this.content[i].q);
 		                        this.content[i].q=quantity;
-		                        console.log("Amount of " + products[productID].name + " increasd to " + content[i].q);
+		                        console.log("Amount of " + products[productID].name + " increasd to " + this.content[i].q);
 		                    }
 		                }
 		            }
@@ -134,7 +135,7 @@ class Basket extends ProductlineItemContainer {
 			    } else {
 			        products[productID].inventory-=quantity;
 			        this.content.push(new ProductLineItem(productID));
-			        for (i=0; i<content.length; i++){
+			        for (let i=0; i<content.length; i++){
 			            if (this.content[i].id===productID){
 			                this.content[i].q=quantity;
 			            }
@@ -145,11 +146,21 @@ class Basket extends ProductlineItemContainer {
 	}
 	
 	placeOrder() {
-		order.push(new Order(this.content));
-    myBasket = null;      	
+		orders.push(new Order(this.content));
+      	console.log("New order has been placed!")
+    	myBasket = null;      	
 	}
 }
 
 console.log(myBasket==null);
 Basket.getBasket();
 myBasket.addProduct(1);
+myBasket.getTotalPrice();
+myBasket.updateProductQuantity(1, 5);
+myBasket.getTotalPrice();
+myBasket.addProduct(0);
+myBasket.getTotalPrice();
+myBasket.removeProduct(1);
+myBasket.getTotalPrice();
+myBasket.placeOrder();
+orders[0].getTotalPrice();
