@@ -72,6 +72,7 @@ class Basket extends ProductlineItemContainer {
   
     constructor(){
       super();
+      //this.content = [];
     }
   
 	addProduct(productID){
@@ -80,15 +81,15 @@ class Basket extends ProductlineItemContainer {
 				console.log("SORRY, no more" + products[productID].name);
 			} else {
 				var test = 0;
-			    for (let i=0; i<content.length; i++){
-			    	if (content[i].id===productID){
-			        	content[i].q++;
+			    for (let i=0; i<this.content.length; i++){
+			    	if (this.content[i].id===productID){
+			        	this.content[i].q++;
 			            products[productID].inventory--;
 			            test = 1;
 			        }
 			    }       
 			    if (test === 0) {
-			    	content.push(new ProductLineItem(productID));
+			    	this.content.push(new ProductLineItem(productID));
 			        products[productID].inventory--;
 			    }   
 			  	console.log("1 piece of " + products[productID].name + " added");
@@ -98,11 +99,11 @@ class Basket extends ProductlineItemContainer {
         }
 	}
 	removeProduct(productID){
-		if (content[productID].q > 0) {
-			var quantity = content[productID].q;
-            content[productID].q = 0;
+		if (this.content[productID].q > 0) {
+			var quantity = this.content[productID].q;
+            this.content[productID].q = 0;
 			products[productID].inventory+=quantity;
-			console.log("all pieces of " + products[productID].name + " removed from the basket");
+			console.log("All pieces of " + products[productID].name + " removed from the basket");
         } else {
 			console.log("SORRY, there is nothing to remove");
 		}
@@ -115,10 +116,10 @@ class Basket extends ProductlineItemContainer {
 		            	console.log("SORRY, there are not enough pieces of " + products[productID].name);
 		            } else {
 		                for (i=0; i<content.length; i++){
-		                    if(content[i].id===productID){
-		                        products[productID].inventory -= (quantity-content[i].q);
-		                        content[i].q=quantity;
-		                        console.log("amount of " + products[productID].name + " increasd to " + content[i].q);
+		                    if(this.content[i].id===productID){
+		                        products[productID].inventory -= (quantity-this.content[i].q);
+		                        this.content[i].q=quantity;
+		                        console.log("Amount of " + products[productID].name + " increasd to " + content[i].q);
 		                    }
 		                }
 		            }
@@ -132,10 +133,10 @@ class Basket extends ProductlineItemContainer {
 			        console.log("SORRY, there are not enough pieces of " + products[productID].name);    
 			    } else {
 			        products[productID].inventory-=quantity;
-			        content.push(new ProductLineItem(productID));
+			        this.content.push(new ProductLineItem(productID));
 			        for (i=0; i<content.length; i++){
-			            if (content[i].id===productID){
-			                content[i].q=quantity;
+			            if (this.content[i].id===productID){
+			                this.content[i].q=quantity;
 			            }
 			        }
 			        console.log("amount of " + products[productID].name + " increasd to " + content[productID].q);
