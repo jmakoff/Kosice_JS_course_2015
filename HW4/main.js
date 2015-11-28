@@ -391,9 +391,9 @@ function tableButtonsCreate() {
     }
     tbl.appendChild(tbdy);
     body.appendChild(tbl);
-};
-
- /*
+}
+/*
+ 
  class ProductLineItem{
  
  }
