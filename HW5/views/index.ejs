@@ -8,7 +8,7 @@
 	</head>
 	
 	<body>
-		<div class="left">
+		<div id="productsContainer" class="left">
 		<% for(var i = 0; i < products.length; i++) {%>
 			<div class="product-container border">
 				<h2>
@@ -24,10 +24,9 @@
 		</div>
 		<div class="basket-container left border">
 			<h2>Basket</h2>
-			<div class="product-line-items">
-			<div>
-			<button class="js_place-order hide">
-				Place Order
-			</button>
+			<div id="product-line-items">
+
+			</div>
 		</div>
+	</body>
 </html>

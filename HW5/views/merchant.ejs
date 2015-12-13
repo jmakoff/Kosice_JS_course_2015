@@ -8,17 +8,17 @@
 	</head>
 	
 	<body>
-		<div class="left">
+		<div id="productsContainer" class="left">
 			<% for(var i = 0; i < products.length; i++) {%>
-				<div class="product-container border">
-					<div>
+				<div class="product-container border" productID="<%=products[i].id%>>">
+					<div class="name">
 						<input value="<%=products[i].name%>" name="product_<%=i%>_name" type="text"/>
 					</div>
-					<div>
+					<div class="price">
 						<span>Price:</span>
 						<input value="<%=products[i].price%>" name="product_<%=i%>_price" type="text"/>
 					</div>
-					<div>
+					<div class="inventory">
 						<span>inventory:</span>
 						<input value="<%=products[i].inventory%>" name="product_<%=i%>_inventory" type="text"/>
 					</div>
@@ -28,25 +28,25 @@
 					</div>
 				</div>
 			<% } %>
-			<div class="product-container border new-product-container">
-					<div>
-						<input value="" name="product_new_price" type="text"/>
+			<div id="addProductContainer" class="product-container border new-product-container">
+					<div class="name">
+						<input value="" name="name" type="text"/>
 					</div>
-					<div>
+					<div class="price">
 						<span>Price:</span>
-						<input value="" name="product_new_price" type="text"/>
+						<input value="" name="price" type="text"/>
 					</div>
-					<div>
+					<div class="inventory">
 						<span>inventory:</span>
-						<input value="" name="product_new_inventory" type="text"/>
+						<input value="" name="inventory" type="text"/>
 					</div>
 					<div class="product-buttons">
-						<button class="js_add-product">Add</button>
+						<button id="addProductButton" class="js_add-product">Add</button>
 					</div>
 				</div>
 			
 		</div>
-		<div class="orders-container left border">
+		<div id="ordersContainer" class="orders-container left border">
 			<h2>Orders</h2>
 			<% for(var i = 0; i < orders.length; i++) {%>
 				<div class="order">
@@ -57,4 +57,5 @@
 				</div>
 			<%}%>
 		</div>
+	</body>
 </html>
