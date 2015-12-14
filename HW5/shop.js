@@ -30,7 +30,8 @@ class ProductlineItemContainer {
 	getTotalPrice(){
 		var sum = 0;
 		for(let i = 0; i < this.productLineItems.length; i ++) {
-			sum += this.productLineItems.totalPrice;
+			console.log(sum);
+			sum += this.productLineItems[i].total;
 		}
 		return sum;
 	}

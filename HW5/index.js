@@ -16,8 +16,16 @@ app.get('/', function (req, res) {
 	});
 });
 io.on('connection', function (socket) {
+	 
 	var basket = new shop.Basket();
-	//implement
+	socket.on("addProduct", function(data) {
+		basket.addProduct(data.pid);
+		socket.emit("productAdded", {
+			succses : true,
+			basket : basket
+		});
+	});
+	io.to("merchant").emit("orderPlaced")
 });
 
 
@@ -30,8 +38,11 @@ app.get('/merchant', function (req, res) {
 		orders : shop.orders
 	});
 }); 
+
 merchantIO.on("connection", function(socket) {
 	//implement
+	
+	socket.join("merchants")
 });
 
 var server = http.listen(3000);

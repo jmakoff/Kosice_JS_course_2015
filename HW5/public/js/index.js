@@ -1,5 +1,15 @@
 var socket = io('http://localhost:3000');
-socket.on('news', function (data) {
+
+		
+socket.on("productAdded", function(data){
 	console.log(data);
-    socket.emit('my other event', { my: 'data' });
 });
+
+$(function(){
+	$(".js_add-to-cart").on("click", function(){
+		socket.emit("addProduct", {
+			pid : $(this).data("productId")
+		});
+	});
+})
+
