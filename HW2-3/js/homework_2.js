@@ -1,5 +1,4 @@
 $(function() {
-
 	// showing input field instead of "+"
 	$(".myList").on("click", "span", function(event) {
 		this.innerHTML = '<input type="text" name="newItem">';
@@ -40,6 +39,5 @@ $(function() {
 			}
 		}		
 	}); 
-
 })
 
