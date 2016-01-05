@@ -99,7 +99,7 @@ var basket = (function(){
 		getTotalPrice : function(){
 			var total = 0;
 			for (var i = 0; i < items.length; i++) {
-				total = total +  items[i].getPrice*numberOfItems[i];
+				total = total +  items[i].getPrice()*numberOfItems[i];
 			};
 			return total;
 		}
