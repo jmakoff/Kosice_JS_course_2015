@@ -23,14 +23,14 @@
 						<input value="<%=products[i].inventory%>" name="product_<%=i%>_inventory" type="text"/>
 					</div>
 					<div class="product-buttons">
-						<button class="js_update-product">Update</button>
-						<button class="js_remove-product">Remove</button>
+						<button class="js_update-product" data-product-id="<%=i%>">Update</button>
+						<button class="js_remove-product" data-product-id="<%=i%>">Remove</button>
 					</div>
 				</div>
 			<% } %>
 			<div class="product-container border new-product-container">
 					<div>
-						<input value="" name="product_new_price" type="text"/>
+						<input value="" name="product_new_name" type="text"/>
 					</div>
 					<div>
 						<span>Price:</span>
