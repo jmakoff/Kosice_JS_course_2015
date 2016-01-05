@@ -17,15 +17,18 @@ socket.on('orderPlaced', function() {
 	$(".js_place-order").addClass("hide");
 });
 
-socket.on('Error', function(error) {
+socket.on('Error', function(error) {	
 	location.reload();
 	alert(error.message + "\nYour page was refreshed.");
 });
 
-socket.on('productsChanged', function() {
-	location.reload();
-	// Should solve this other way, but I do not how.
-	alert("Someone changed the product list, so your basket is now empty.");
+socket.on('productsChanged', function(data) {
+	var productListing = "<div class=\"left\">";
+	for (var i = 0; i < data.products.length; i++) {
+		productListing += "<div class=\"product-container border\"><h2>" + data.products[i].name + "</h2><div><span>Price: </span><span>" + data.products[i].price + "</span></div><button data-product-id=\"" + i + "\" class=\"js_add-to-cart\">Add to Cart</button></div>";
+	}
+	productListing += "</div>";
+	$(".product-container").parent().replaceWith(productListing);
 });
 
 var input = false;
@@ -42,7 +45,7 @@ function remove() {
 }
 
 $(function() {
-	$(".js_add-to-cart").on("click", function() {
+	$("body").on("click", ".js_add-to-cart", function() {
 		socket.emit('addToCart', {
 			productId : $(this).data("productId")
 		});

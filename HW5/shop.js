@@ -15,11 +15,11 @@ class ProductLineItem {
 	constructor(productID){
 		this.product = products[productID];
 		this.qty = 1;
-		this.total = this.product.price;
+		this.total = parseFloat(this.product.price);
 	}
 	updateQty(qty) {
 		this.qty = qty;
-		this.total = this.product.price * qty;
+		this.total = parseFloat(this.product.price) * qty;
 	}
 	getID() {
 		for (var i = 0; i < products.length; i++) {
@@ -56,7 +56,7 @@ class ProductlineItemContainer {
 	getTotalPrice(){
 		var sum = 0;
 		for(let i = 0; i < this.productLineItems.length; i++) {
-			sum += this.productLineItems[i].total;
+			sum += parseFloat(this.productLineItems[i].total);
 		}
 		return sum;
 	}
@@ -93,7 +93,7 @@ class Basket extends ProductlineItemContainer {
 			this.productLineItems.push(item);
 		} else {
 			this.productLineItems[IDInBasket].qty++;
-			this.productLineItems[IDInBasket].total += products[productID].price;
+			this.productLineItems[IDInBasket].total += parseFloat(products[productID].price);
 		}
 
 		return this;
