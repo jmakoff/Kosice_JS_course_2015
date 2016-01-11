@@ -16,9 +16,9 @@
 			<span class="label label-info">Javascript data types</span>
 
 			<ul class="myList" >
-				<li >Elementary
+				<li><span id="ElementaryContainer">Elementary</span>
         
-					<ul>
+					<ul class="Elementary">
 						<li>Number</li>
 						<li>Boolean</li>
 						<li>String</li>
@@ -26,13 +26,30 @@
 						<li>undefined</li>
 					</ul>
           
-					<ul>
-					  <li >Objects
-							<ul>
-								<li>Array<span>+</span></li>
-								<li>Date<span>+</span></li>
-								<li>Function<span>+</span></li>
+					<ul class="Elementary">
+						<li><span id="ObjectContainer">Objects</span>
+							
+							<ul class="Object">
+								<li><span id="ArrayContainer">Array</span> <span id="ArrayPlus">(+)</span> <input type="text" id="ArrayText" style="display: none"></li>
+									<ul class="ArrayObject" id="ArrayList">
+									</ul>
+								</li>
 							</ul>
+							
+							<ul class="Object">
+								<li><span id="DateContainer">Date</span> <span id="DatePlus">(+)</span> <input type="text" id="DateText" style="display: none"></li>
+									<ul class="DateObject" id="DateList">
+									</ul>
+								</li>
+							</ul>
+							
+							<ul class="Object">
+								<li><span id="FunctionContainer">Function</span> <span id="FunctionPlus">(+)</span> <input type="text" id="FunctionText" style="display: none"></li>
+									<ul class="FunctionObject" id="FunctionList">
+									</ul>
+								</li>
+							</ul>
+							
 						</li>
 					</ul>
           
